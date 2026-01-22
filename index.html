@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>الصفحة الرئيسية</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f5f7fb; color:#111; }
+    .card { background:#fff; padding:24px; border-radius:8px; box-shadow:0 6px 18px rgba(20,30,50,0.08); max-width:420px; text-align:center; }
+    button { padding:10px 16px; border:0; border-radius:6px; background:#0366d6; color:#fff; cursor:pointer; font-size:16px; }
+    a { color:#0366d6; text-decoration:none; }
+    small { display:block; margin-top:12px; color:#666; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>مرحباً</h1>
+    <p>اضغط الزر لفتح صفحة تسجيل الدخول أو انتظر لإعادة التوجيه التلقائي.</p>
+
+    <!-- زر لفتح login.html في نفس التبويب -->
+    <button id="openSame">افتح تسجيل الدخول في نفس التبويب</button>
+
+    <!-- زر لفتح login.html في تبويب جديد -->
+    <div style="margin-top:12px;">
+      <button id="openNew" style="background:#2ea44f">افتح تسجيل الدخول في تبويب جديد</button>
+    </div>
+
+    <small>أو سيتم إعادة التوجيه تلقائياً بعد 5 ثوانٍ.</small>
+  </div>
+
+  <script>
+    // اسم الملف الهدف
+    const target = 'D.W.A/login/login.html';
+
+    // 1) إعادة توجيه تلقائي بعد 5 ثواني في نفس التبويب
+    setTimeout(() => {
+      // استخدم window.location.href لإعادة التوجيه في نفس التبويب
+      window.location.href = target;
+    }, 5000);
+
+    // 2) فتح عند الضغط على زر في نفس التبويب
+    document.getElementById('openSame').addEventListener('click', () => {
+      window.location.href = target;
+    });
+
+    // 3) فتح عند الضغط على زر في تبويب جديد
+    document.getElementById('openNew').addEventListener('click', () => {
+      window.open(target, '_blank');
+    });
+  </script>
+</body>
+</html>
